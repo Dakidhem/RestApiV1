@@ -13,6 +13,7 @@ exports.signup = (req, res) => {
     email: req.body.email,
     numtel: req.body.numtel,
     password: bcrypt.hashSync(req.body.password, 8),
+    roles: req.body.roles,
   });
 
   user.save((err, user) => {
