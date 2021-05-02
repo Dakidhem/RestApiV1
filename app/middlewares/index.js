@@ -5,3 +5,4 @@ module.exports = {
   authJwt,
   verifySignUp,
 };
+console.log(module.exports);
