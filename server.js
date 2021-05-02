@@ -10,6 +10,9 @@ var corsOptions = {
 };
 
 app.use(cors(corsOptions));
+var cors = require("cors");
+
+app.use(cors()); // Use this after the variable declaration
 
 // parse requests of content-type - application/json
 app.use(bodyParser.json());
