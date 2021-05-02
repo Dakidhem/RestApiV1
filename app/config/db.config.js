@@ -1,5 +1,5 @@
 module.exports = {
-  HOST: "localhost",
+  HOST: "https://fathomless-coast-11439.herokuapp.com/",
   PORT: 27017,
-  DB: "bezkoder_db",
+  DB: "myFirstDatabase",
 };
