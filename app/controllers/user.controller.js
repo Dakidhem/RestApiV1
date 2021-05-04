@@ -9,3 +9,6 @@ exports.userBoard = (req, res) => {
 exports.adminBoard = (req, res) => {
   res.status(200).send("Admin Content.");
 };
+exports.superadminBoard = (req, res) => {
+  res.status(200).send("superadmin Content.");
+};
