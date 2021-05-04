@@ -8,12 +8,10 @@ const User = mongoose.model(
     email: String,
     numtel: String,
     password: String,
-    roles: [
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Role",
-      },
-    ],
+    roles: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Role",
+    },
   })
 );
 
