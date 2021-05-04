@@ -102,6 +102,7 @@ exports.signin = (req, res) => {
         nom: user.nom,
         prenom: user.prenom,
         email: user.email,
+        role: user.roles,
         roles: authorities,
         accessToken: token,
       });
