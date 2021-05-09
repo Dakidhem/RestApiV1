@@ -13,9 +13,10 @@ checkDuplicateUsernameOrEmail = (req, res, next) => {
     }
 
     if (user) {
-      res
-        .status(400)
-        .send({ message: "Failed! The phone number is already in use!" });
+      res.status(400).send({
+        message:
+          "Ce numéro de téléphone est déjà utilisé, veuillez utiliser un autre!",
+      });
       return;
     }
 
@@ -29,7 +30,9 @@ checkDuplicateUsernameOrEmail = (req, res, next) => {
       }
 
       if (user) {
-        res.status(400).send({ message: "Failed! Email is already in use!" });
+        res.status(400).send({
+          message: "Cet Email est déjà utilisé, veuillez utiliser un autre!",
+        });
         return;
       }
 
@@ -42,7 +45,7 @@ checkRolesExisted = (req, res, next) => {
   if (req.body.roles) {
     if (!ROLES.includes(req.body.roles)) {
       res.status(400).send({
-        message: `Failed! Role ${req.body.roles} does not exist!`,
+        message: `Ce rôle ${req.body.roles} n'éxiste pas`,
       });
       return;
     }
