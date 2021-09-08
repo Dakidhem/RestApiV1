@@ -20,4 +20,6 @@ module.exports = function (app) {
   );
 
   app.post("/api/auth/signin", controller.signin);
+  app.get("/api/getAllAdmin", controller.getAllAdmin);
+  app.delete("/api/deleteAdmin", controller.deleteAdmin);
 };

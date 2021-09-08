@@ -111,3 +111,39 @@ exports.signin = (req, res) => {
       });
     });
 };
+exports.getAllAdmin = (req, res) => {
+  Role.find({ name: "admin" })
+    .then((roleId) => {
+      User.find({ roles: roleId[0]._id })
+        .then((data) => {
+          res.send(data);
+        })
+        .catch((err) => {
+          res.status(500).send(err);
+        });
+    })
+    .catch((err) => {
+      res.status(500).send(err);
+    });
+};
+
+exports.deleteAdmin = (req, res) => {
+  const adminId = req.body.adminId;
+  User.findByIdAndRemove(adminId, { useFindAndModify: false })
+    .then((data) => {
+      if (!data) {
+        res.status(404).send({
+          message: `Impossible de retirer l'admin avec l'identifiant=${adminId}.`,
+        });
+      } else {
+        res.send({
+          message: "L'admin' a été retiré avec succès!",
+        });
+      }
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message: "Impossible de retirer l'admin avec l'identifiant=" + adminId,
+      });
+    });
+};
